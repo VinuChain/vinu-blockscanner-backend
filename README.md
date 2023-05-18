@@ -2,7 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/Fantom-foundation/fantom-api-graphql)](https://goreportcard.com/report/github.com/Fantom-foundation/fantom-api-graphql)
 
 GraphQL API server for Fantom powered blockchain network.
-
+1
 ## Releases
 Please check the [release tags](https://github.com/Fantom-foundation/fantom-api-graphql/tags) to get more details and to download previous releases.
 
