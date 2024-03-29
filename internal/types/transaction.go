@@ -82,6 +82,9 @@ type Transaction struct {
 
 	// Logs represents a list of log records created along with the transaction
 	Logs []retypes.Log `json:"logs"`
+
+	// FeeRefund represents the amount of gas refunded to the sender after the transaction was executed.
+	FeeRefund hexutil.Big `json:"feeRefund,omitempty"`
 }
 
 // BsonLog represents the transaction log record data structure for BSON formatting.
@@ -116,6 +119,7 @@ type BsonTransaction struct {
 	Status     uint64    `bson:"stat"`
 	Stamp      time.Time `bson:"stamp"`
 	Logs       []BsonLog `bson:"logs"`
+	FeeRefund  string    `bson:"feeRefund,omitempty"`
 }
 
 // Uid calculates an ordinal index of the transaction referenced.
@@ -222,6 +226,9 @@ func (trx *Transaction) MarshalBSON() ([]byte, error) {
 		}
 	}
 
+	feeRefund := trx.FeeRefund.ToInt()
+	pom.FeeRefund = feeRefund.String()
+
 	return bson.Marshal(pom)
 }
 
@@ -314,5 +321,8 @@ func (trx *Transaction) UnmarshalBSON(data []byte) (err error) {
 			trx.Logs[i].Topics[ti] = common.HexToHash(th)
 		}
 	}
+
+	trx.FeeRefund = (hexutil.Big)(*hexutil.MustDecodeBig(row.FeeRefund))
+
 	return nil
 }

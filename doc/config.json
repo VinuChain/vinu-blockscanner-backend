@@ -15,15 +15,15 @@
     "resolver_timeout": 240
   },
   "node": {
-    "url": "/home/urick0s/projects/work/vinu-blockchain/demo/opera0.datadir/opera.ipc"
+    "url": "/Users/aleksandrgopankov/go/src/vinu-blockchain/build/datadir/datadir_opera1/opera.ipc"
   },
   "p2p": {
     "bind_udp": "0.0.0.0:4000",
-    "geo_db": "/home/urick0s/projects/work/fantom-api-graphql/cmd/apiserver/city.mmdb",
+    "geo_db": "/Users/aleksandrgopankov/go/src/vinu-blockscanner-backend/cmd/apiserver/city.mmdb",
     "bootstrap": [
-      "enode://8bf9a4e8a9e87d4b93e8c5fa18c556c1313f880a479fa2d36b226c953311b4c39ce5171fdb5ab508431a0139eed461cbf06eda9d6666633b7dc8516425a6998a@127.0.0.1:3000",
-      "enode://f792e673ded8d601c0222c5e9ad2a7e34cc58fad7ceb1f7cc60ad62da7266bb6738e709ecf03ba5e8fc86663f54fc1f95dbe68b4f5ee6f4733047dbabc70bac7@127.0.0.1:3001",
-      "enode://ae7877a925dadd8e63b4373686876a1187a6cf6dc145f9fd047163fed5d831969c5a08be3957f5518124551510c084138e2514b181c55c27c9f2a579b6cad5bd@127.0.0.1:3002"
+      "enode://e5d36b3a9ea7053ed2de16bc7e45e959aa9bbb87e827a06167eb1cff9fb6bfda76eecae0d9d3dbd37e1dfa7fd9d4c7b34f31d1e7df01f1c07272cbd616862530@127.0.0.1:4001",
+      "enode://7b197124b19f0897ff43ec3045e643a9cb95095cc69008c8e694ae670596b22a8f751c59aad241582f6768cadcd663cc6d49c9cee8f2880b1335040a82e296e4@127.0.0.1:4002",
+      "enode://bede318949bb14148817e46aad1be3dc15a1bb2d706cc0950b35b1a824a57752027e945c4748cd55e010f506ed273d9de4fe84974347243d467efd472510f824@127.0.0.1:4003"
     ]
   },
   "log": {

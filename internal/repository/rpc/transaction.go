@@ -15,7 +15,6 @@ package rpc
 
 import (
 	"fantom-api-graphql/internal/types"
-
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	retypes "github.com/ethereum/go-ethereum/core/types"
@@ -44,6 +43,7 @@ func (ftm *FtmBridge) Transaction(hash *common.Hash) (*types.Transaction, error)
 			ContractAddress   *common.Address `json:"contractAddress,omitempty"`
 			Status            hexutil.Uint64  `json:"status"`
 			Logs              []retypes.Log   `json:"logs"`
+			FeeRefund         hexutil.Big     `json:"feeRefund"`
 		}
 
 		// call for the transaction receipt data
@@ -60,6 +60,7 @@ func (ftm *FtmBridge) Transaction(hash *common.Hash) (*types.Transaction, error)
 		trx.ContractAddress = rec.ContractAddress
 		trx.Status = &rec.Status
 		trx.Logs = rec.Logs
+		trx.FeeRefund = rec.FeeRefund
 	}
 
 	// keep track of the operation

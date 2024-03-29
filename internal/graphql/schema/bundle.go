@@ -450,6 +450,9 @@ type Transaction {
     # erc1155Transactions provides list of ERC-1155 NFT transactions executed in the scope
     # of this blockchain transaction call.
     erc1155Transactions: [ERC1155Transaction!]!
+
+	# feeRefund is the amount of gas fee refunded to the sender.
+	feeRefund: BigInt!
 }
 
 # NetworkNodeGroupLevel represents the detail of network node count aggregation.
