@@ -28,6 +28,20 @@ func (p *proxy) Account(addr *common.Address) (acc *types.Account, err error) {
 		}
 	}
 
+	var payback hexutil.Big
+	if acc.Type == types.AccountTypeWallet {
+		// try to get payback value from the rpc
+		payback, err = p.AccountPayback(addr)
+		if err != nil {
+			p.log.Warningf("can not get payback value for account %s; %s", addr.String(), err.Error())
+		}
+	} else {
+		payback = (hexutil.Big)(*hexutil.MustDecodeBig("0x0"))
+	}
+
+	// set the payback value
+	acc.PayBack = payback
+
 	// return the account
 	return acc, nil
 }
@@ -128,4 +142,14 @@ func (p *proxy) StoreAccount(acc *types.Account) error {
 // AccountMarkActivity marks the latest account activity in the repository.
 func (p *proxy) AccountMarkActivity(addr *common.Address, ts uint64) error {
 	return p.db.AccountMarkActivity(addr, ts)
+}
+
+// AccountPayback returns the current payback balance of an account at Opera blockchain.
+func (p *proxy) AccountPayback(addr *common.Address) (hexutil.Big, error) {
+	payback, err := p.rpc.AccountPayback(addr)
+	if err != nil {
+		return (hexutil.Big)(*hexutil.MustDecodeBig("0x0")), err
+	}
+
+	return *payback, nil
 }

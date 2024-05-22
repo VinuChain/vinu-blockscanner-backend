@@ -1868,6 +1868,9 @@ type Account {
 
     # Details about smart contract, if the account is a smart contract.
     contract: Contract
+
+	# payback is the amount of quota of fee that the account accumulated.
+    payback: BigInt!
 }
 
 # GovernanceContract represents basic information

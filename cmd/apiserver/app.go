@@ -61,7 +61,7 @@ func (app *apiServer) init() {
 // run executes the API server function.
 func (app *apiServer) run() {
 	// print the app version and exit if this is the only thing requested
-	build.PrintVersion(app.cfg)
+	build.PrintVersion(app.cfg, app.log)
 	if app.isVersionReq {
 		return
 	}

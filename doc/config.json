@@ -21,13 +21,12 @@
     "bind_udp": "0.0.0.0:4000",
     "geo_db": "/Users/aleksandrgopankov/go/src/vinu-blockscanner-backend/cmd/apiserver/city.mmdb",
     "bootstrap": [
-      "enode://e5d36b3a9ea7053ed2de16bc7e45e959aa9bbb87e827a06167eb1cff9fb6bfda76eecae0d9d3dbd37e1dfa7fd9d4c7b34f31d1e7df01f1c07272cbd616862530@127.0.0.1:4001",
-      "enode://7b197124b19f0897ff43ec3045e643a9cb95095cc69008c8e694ae670596b22a8f751c59aad241582f6768cadcd663cc6d49c9cee8f2880b1335040a82e296e4@127.0.0.1:4002",
-      "enode://bede318949bb14148817e46aad1be3dc15a1bb2d706cc0950b35b1a824a57752027e945c4748cd55e010f506ed273d9de4fe84974347243d467efd472510f824@127.0.0.1:4003"
+      "enode://e5583a68718c658f60c21cc11a0b637981ee6b422483c0ecf63c00a916a0f42f9039323ad81fab90efbfda908693cc20b31e3c46d762db40f14f7e506b6469a7@127.0.0.1:4001"
     ]
   },
   "log": {
-    "level": "Info"
+    "level": "Info",
+    "format": "%{time:2006/01/02 15:04:05} %{message}"
   },
   "db": {
     "url": "mongodb://127.0.0.1:27017",
@@ -41,10 +40,7 @@
     "stakers": 1
   },
   "staking": {
-    "sfc": "0xFC00FACE00000000000000000000000000000000",
-    "sti": "0x92ffad75b8a942d149621a39502cdd8ad1dd57b4",
-    "tokenizer": "0xc3e8459464a0e8fd08d767a16b5c211b45ac961f",
-    "token": "0x69c744d3444202d35a2783929a0f930f2fbb05ad"
+    "sfc": "0xFC00FACE00000000000000000000000000000000"
   },
   "defi": {
     "fmint": {

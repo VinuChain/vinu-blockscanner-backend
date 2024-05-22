@@ -34,6 +34,7 @@ type Account struct {
 	Type         string         `json:"type"`
 	LastActivity hexutil.Uint64 `json:"ats"`
 	TrxCounter   hexutil.Uint64 `json:"trc"`
+	PayBack      hexutil.Big    `json:"payback"`
 }
 
 // UnmarshalAccount parses the JSON-encoded account data.

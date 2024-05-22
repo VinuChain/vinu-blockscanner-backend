@@ -48,3 +48,21 @@ func (ftm *FtmBridge) AccountNonce(addr *common.Address) (*hexutil.Uint64, error
 	}
 	return &nonce, nil
 }
+
+// AccountPayback returns the current payback balance of an account from Opera node.
+func (ftm *FtmBridge) AccountPayback(addr *common.Address) (*hexutil.Big, error) {
+	// use RPC to make the call
+	var balance string
+	err := ftm.rpc.Call(&balance, "vc_getPaybackBalance", addr.Hex())
+	if err != nil {
+		return nil, err
+	}
+
+	// decode the response from remote server
+	val, err := hexutil.DecodeBig(balance)
+	if err != nil {
+		return nil, err
+	}
+
+	return (*hexutil.Big)(val), nil
+}

@@ -6,6 +6,7 @@ package build
 
 import (
 	"fantom-api-graphql/internal/config"
+	"fantom-api-graphql/internal/logger"
 	"fmt"
 	"runtime"
 )
@@ -41,13 +42,13 @@ func init() {
 
 // PrintVersion prints the version information
 // into the std output.
-func PrintVersion(cfg *config.Config) {
-	fmt.Printf("%sApp Name:%s\t%s\n", Blue, Reset, cfg.AppName)
-	fmt.Printf("%sApp Version:%s\t%s\n", Blue, Reset, Version)
-	fmt.Printf("%sCommit Hash:%s\t%s\n", Blue, Reset, Commit)
-	fmt.Printf("%sCommit Time:%s\t%s\n", Blue, Reset, CommitTime)
-	fmt.Printf("%sBuild Time:%s\t%s\n", Blue, Reset, Time)
-	fmt.Printf("%sBuild By:%s\t%s\n", Blue, Reset, Compiler)
+func PrintVersion(cfg *config.Config, log logger.Logger) {
+	log.Infof("App Name: %s", cfg.AppName)
+	log.Infof("App Version: %s", Version)
+	log.Infof("Commit Hash: %s", Commit)
+	log.Infof("Commit Time: %s", CommitTime)
+	log.Infof("Build Time: %s", Time)
+	log.Infof("Build By: %s", Compiler)
 }
 
 // Short returns a short, single line version of the app.
